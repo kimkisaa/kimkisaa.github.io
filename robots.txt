@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
+Allow: /land/
 
-Sitemap: https://kimkisaa.github.io/land/sitemap.xml
+Sitemap: https://kimkisaa.github.io/sitemap.xml
