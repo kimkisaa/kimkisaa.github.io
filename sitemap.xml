@@ -1,13 +1,18 @@
 ---
 layout: null
-permalink: /sitemap.xml
-sitemap: false
 ---
-
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>{{ "https://kimkisaa.github.io/land/sitemap.xml" }}</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-  </sitemap>
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for page in site.pages %}
+  {% if page.sitemap != false and page.url %}
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' }}</loc>
+    {% if page.last_modified_at %}
+    <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+    {% elsif page.date %}
+    <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
+    {% endif %}
+  </url>
+  {% endif %}
+{% endfor %}
+</urlset>
