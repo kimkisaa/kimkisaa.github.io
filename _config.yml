@@ -4,14 +4,17 @@ description: 내 집 마련 8단계 가이드와 실전 부동산 뉴스/인사�
 # 중요: 절대 URL이 sitemap에 찍히도록 루트에 설정
 url: https://kimkisaa.github.io
 baseurl: /land
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-redirect-from
+
+layouts_dir: land/_layouts
 lang: ko_KR
 timezone: Asia/Seoul
 
-plugins:
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-feed
-  - jekyll-redirect-from
+
 
 logo: /og-image.jpg
 
