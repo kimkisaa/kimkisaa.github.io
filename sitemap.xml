@@ -1,10 +1,12 @@
 ---
 layout: none
+permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {% for page in site.pages %}
-    {% if page.sitemap != false %}
+  {% assign pages_list = site.pages | concat: site.posts %}
+  {% for page in pages_list %}
+    {% if page.sitemap != false and page.url != nil %}
     <url>
       <loc>{{ page.url | absolute_url }}</loc>
       {% if page.last_modified_at %}
@@ -14,16 +16,5 @@ layout: none
       {% endif %}
     </url>
     {% endif %}
-  {% endfor %}
-
-  {% for post in site.news %}
-    <url>
-      <loc>{{ post.url | absolute_url }}</loc>
-      {% if post.last_modified_at %}
-        <lastmod>{{ post.last_modified_at | date_to_xmlschema }}</lastmod>
-      {% elsif post.date %}
-        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-      {% endif %}
-    </url>
   {% endfor %}
 </urlset>
