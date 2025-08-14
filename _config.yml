@@ -1,0 +1,45 @@
+title: 부동산의 모든 것
+description: 내 집 마련 8단계 가이드와 실전 부동산 뉴스/인사이트
+
+# 중요: 절대 URL이 sitemap에 찍히도록 루트에 설정
+url: https://kimkisaa.github.io
+baseurl: /land
+lang: ko_KR
+timezone: Asia/Seoul
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-redirect-from
+
+logo: /og-image.jpg
+
+collections:
+  news:
+    output: true
+    permalink: /news/:name/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+permalink: pretty
+
+defaults:
+  - scope: { path: "", type: "pages" }
+    values:
+      image: /og-image.jpg
+  - scope: { path: "", type: "news" }
+    values:
+      layout: whiteboard
+      image: /og-image.jpg
+
+exclude:
+  - README.md
+  - node_modules
+  - package.json
+  - package-lock.json
+
+google_site_verification: "37Yb_vNwDDWNyX3MBnsCNEQKjMRFC-u9a0qOEW8ozCo"
+naver_site_verification: "89744d9c036ee55b7870cfdb2370384d60be22f7"
